@@ -1,22 +1,37 @@
+CREATE TABLE Customers (
+    CustomerID int,
+    Name varchar(255),
+    Email varchar(255)
+);
+
+CREATE TABLE Orders (
+    OrderID int,
+    CustomerID int,
+    OrderDate date
+);
+
+CREATE TABLE OrderDetails (
+    OrderDetailID int,
+    OrderID int,
+    ProductID int,
+    Quantity int,
+    PricePerItem float
+);
 
 
 
+INSERT INTO Customers (CustomerID, Name, Email) VALUES (1, 'Alice Smith', 'alice@example.com');
+INSERT INTO Customers (CustomerID, Name, Email) VALUES (2, 'Bob Johnson', 'bob@example.com');
+
+INSERT INTO Orders (OrderID, CustomerID, OrderDate) VALUES (1, 1, '2023-01-15');
+INSERT INTO Orders (OrderID, CustomerID, OrderDate) VALUES (2, 2, '2023-01-17');
 
 
 
-
-
-
-
--- INSERT INTO Orders (OrderID, CustomerID, OrderDate) VALUES (1, 1, '2023-01-15');
--- INSERT INTO Orders (OrderID, CustomerID, OrderDate) VALUES (2, 2, '2023-01-17');
-
-
-
--- INSERT INTO OrderDetails (OrderDetailID, OrderID, ProductID, Quantity, PricePerItem) VALUES (1, 1, 1, 1, 1000.00);
--- INSERT INTO OrderDetails (OrderDetailID, OrderID, ProductID, Quantity, PricePerItem) VALUES (2, 1, 2, 2, 500.00);
--- INSERT INTO OrderDetails (OrderDetailID, OrderID, ProductID, Quantity, PricePerItem) VALUES (3, 2, 1, 1, 1200.00);
--- INSERT INTO OrderDetails (OrderDetailID, OrderID, ProductID, Quantity, PricePerItem) VALUES (4, 2, 2, 1, 800.00);
+INSERT INTO OrderDetails (OrderDetailID, OrderID, ProductID, Quantity, PricePerItem) VALUES (1, 1, 1, 1, 1000.00);
+INSERT INTO OrderDetails (OrderDetailID, OrderID, ProductID, Quantity, PricePerItem) VALUES (2, 1, 2, 2, 500.00);
+INSERT INTO OrderDetails (OrderDetailID, OrderID, ProductID, Quantity, PricePerItem) VALUES (3, 2, 1, 1, 1200.00);
+INSERT INTO OrderDetails (OrderDetailID, OrderID, ProductID, Quantity, PricePerItem) VALUES (4, 2, 2, 1, 800.00);
 
     
 
@@ -97,7 +112,6 @@ FROM Inventory
 WHERE UnitsInStock < 20;
 
 -- Exercise #4: Retrieve all data from the Books table.
-
 SELECT ExerciseNum, ExerciseDes
 FROM Exercises
 WHERE ExerciseNum = 4;
@@ -187,14 +201,6 @@ SELECT ExerciseNum, ExerciseDes
 FROM Exercises
 WHERE ExerciseNum = 8;
 
-CREATE TABLE OrderDetails (
-    OrderDetailID int,
-    OrderID int,
-    ProductID int,
-    Quantity int,
-    PricePerItem float
-);
-
 SELECT
     AVG(PricePerItem) AS AveragePrice
 FROM
@@ -243,12 +249,6 @@ FROM
 SELECT ExerciseNum, ExerciseDes
 FROM Exercises
 WHERE ExerciseNum = 11;
-
-CREATE TABLE Orders (
-    OrderID int,
-    CustomerID int,
-    OrderDate date
-);
 
 SELECT
     Products.ProductName,
@@ -299,12 +299,6 @@ JOIN
 SELECT ExerciseNum, ExerciseDes
 FROM Exercises
 WHERE ExerciseNum = 13;
-
-CREATE TABLE Customers (
-    CustomerID int,
-    Name varchar(255),
-    Email varchar(255)
-);
 
 SELECT
     Customers.Name AS CustomerName,
